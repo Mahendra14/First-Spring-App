@@ -1,6 +1,8 @@
 package com.mahendramakes.firstspringproject.services;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 import com.mahendramakes.firstspringproject.dao.PersonDao;
 import com.mahendramakes.firstspringproject.models.Person;
@@ -26,4 +28,17 @@ public class PersonService {
     public List<Person> getAllPersons() {
         return personDao.selectAllPersons();
     }
+
+    public Optional<Person> getPersonById(UUID id) {
+        return personDao.selectPersonById(id);
+    }
+
+    public int updatePerson(UUID id, Person newPerson) {
+        return personDao.updatePersonById(id, newPerson);
+    };
+
+    public int deletePerson(UUID id) {
+        return personDao.deletePersonById(id);
+    };
+
 }
